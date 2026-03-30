@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Handwriting Recognition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🖊️ AI Handwriting Recognition</h1>
+            <p class="subtitle">Convert handwritten text to digital with AI</p>
+            <div id="connectionStatus" class="status-indicator">
+                <span class="dot"></span>
+                <span id="statusText">Checking connection...</span>
+            </div>
+        </header>
 
+        <!-- Auth Section -->
+        <div id="authSection" class="card auth-box">
+            <h2>🔐 Login / Signup</h2>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password">
+            </div>
+            <div class="button-group">
+                <button onclick="login()" class="btn btn-primary">Login</button>
+                <button onclick="signup()" class="btn btn-success">Signup</button>
+            </div>
+            <p id="authError" class="error-message"></p>
+        </div>
+       <!-- Dashboard Section -->
+        <div id="dashboardSection" class="card dashboard hidden">
+            <div class="dashboard-header">
+                <h2>👤 Welcome, <span id="userDisplay"></span></h2>
+                <button onclick="logout()" class="btn btn-danger">Logout</button>
+            </div>
+
+            <div class="upload-section">
+                <h3>📤 Upload 10 Handwriting Samples</h3>
+                <p class="info-text">Select exactly 10 images for batch processing</p>
+                <input type="file" id="fileInput" accept="image/*" multiple>
+                <p id="fileCount" class="file-count">0 files selected</p>
+                <button onclick="uploadBatch()" id="uploadBtn" class="btn btn-primary" disabled>Analyze Batch</button>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Processing 10 samples... (This may take 1-2 minutes) ⏳</p>
+            </div>
+
+            <div id="resultsSection" class="results hidden">
+                <div class="result-box">
+                    <h3>🤖 AI Consolidated Analysis:</h3>
+                    <p id="llmText" class="analysis-text">-</p>
+                </div>
+                <div class="result-box">
+                    <h3>📄 Individual Sample Results:</h3>
+                    <div id="samplesList" class="samples-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <script src="script.js"></script>
+</body>
+</html>
