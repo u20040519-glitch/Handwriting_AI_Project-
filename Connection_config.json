@@ -1,0 +1,22 @@
+
+{
+    "website": {
+        "port": 3000,
+        "url": "http://localhost:3000"
+    },
+    "ai_tool": {
+        "port": 8000,
+        "url": "http://127.0.0.1:8000"
+    },
+    "endpoints": {
+        "health": "/health",
+        "signup": "/signup",
+        "login": "/login",
+        "analyze": "/analyze-batch/"
+    },
+    "cors": {
+        "allow_origins": ["*"],
+        "allow_methods": ["*"],
+        "allow_headers": ["*"]
+    }
+}
